@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentShop.Domain
+namespace EasyCheckout.Entities
 {
     public class Product
     {
@@ -12,5 +12,10 @@ namespace StudentShop.Domain
         public string Name { get; set; }
         public string Category { get; set; }
         public decimal Price { get; set; }
+
+        public override string ToString()
+        {
+            return this.Name.PadRight(40) + this.Price.ToString("C").PadLeft(10);
+        }
     }
 }

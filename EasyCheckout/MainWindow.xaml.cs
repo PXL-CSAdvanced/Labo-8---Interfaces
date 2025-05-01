@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using EasyCheckout.Interfaces;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,7 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentShop.UI
+namespace EasyCheckout
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -21,9 +22,19 @@ namespace StudentShop.UI
             InitializeComponent();
         }
 
-        private void AddProductLine(object sender, RoutedEventArgs e)
+        private void OnWindow_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void OnCheckout_Clicked(object sender, RoutedEventArgs e)
+        {
+            IPaymentMethod method = paymentMethodComboBox.SelectedItem as IPaymentMethod;
+
+            if (method is not null)
+            {
+                paymentResultTextBlock.Text = method.ProcessPayment(0);
+            }
         }
     }
 }

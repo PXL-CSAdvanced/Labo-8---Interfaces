@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentShop.Application.Services.Payments.Interfaces
+namespace EasyCheckout.Interfaces
 {
+
     public interface IPaymentMethod
     {
-        void ProcessPayment(decimal amount);
+        string Name { get; }
+        string ProcessPayment(decimal amount);
     }
+
 }

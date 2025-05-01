@@ -1,21 +1,10 @@
-﻿using StudentShop.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.CompilerServices;
+﻿using EasyCheckout.Entities;
 
-namespace StudentShop.Infrastructure.Data
+namespace EasyCheckout.Data
 {
-    public class ProductStore : Store<Product>
+    internal class ProductStore
     {
-        public ProductStore()
-        {
-            base.data = GetAvailableProducts(); 
-        }
-
-        private List<Product> GetAvailableProducts()
+        public List<Product> GetAllProducts()
         {
             return new List<Product>
             {

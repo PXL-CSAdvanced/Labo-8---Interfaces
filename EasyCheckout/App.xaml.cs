@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace StudentShop.UI
+namespace EasyCheckout
 {
     /// <summary>
     /// Interaction logic for App.xaml
