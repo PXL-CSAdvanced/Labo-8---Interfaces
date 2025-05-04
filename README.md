@@ -20,11 +20,16 @@ Gebruik de volgende eigenschappen voor het MainWindow:
 - Maak in de *Entities*-folder een subfolder met de naam *Base*
 - Voeg een *BaseEntity* class toe aan de *Base*-folder
 - Voeg een *Product* class toe aan de *Entities*-folder
-![entities folder](media/entityfolder.png)
+
+![entities folder](media/EntityFolder.png)
+
 - Implementeer beide classes zoals in onderstaande diagram wordt weergeven
-![entity diagram](media/entitydiagram.png)
+
+![entity diagram](media/EntityDiagram.png)
+
 - Zorg ervoor dat de *ToString()* functie de naam van het product teruggeeft aangevuld met spaties aan de rechterkant zodat de totale lengte 40 is. Plak daar de prijs aan vast voorafgegaan door spaties zodat de totale lengte 10 is, zorg ook dat de prijs als munteenheid getoond wordt.
-![product tostring](media/producttostring.png)
+
+![product tostring](media/ProductToString.png)
 
 ## Interfaces
 - Maak een folder aan met de naam *Interfaces*
@@ -132,7 +137,8 @@ internal class ProductStore
 ## Services
 - Maak een folder aan met de naam *Services*
 - Voorzie hierin 3 classes die de interface *IPaymentMethod* implementeren
-![payment diagram](media/paymentdiagram.png)
+
+![payment diagram](media/PaymentDiagram.png)
 
 > [!TIP]  
 > Zorg dat elke class een unieke string retourneert via de *ProcessPayment*-functie. bv: 
