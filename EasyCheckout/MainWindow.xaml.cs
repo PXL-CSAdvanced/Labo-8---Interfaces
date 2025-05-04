@@ -1,6 +1,7 @@
 ﻿using EasyCheckout.Data;
 using EasyCheckout.Entities;
 using EasyCheckout.Interfaces;
+using EasyCheckout.Logging;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +22,7 @@ namespace EasyCheckout
     {
         private ProductStore _productStore = new ProductStore();
         private PaymentStore _paymentStore = new PaymentStore();
+        private IProductLogger _productLogger = new DebugProductLogger();
 
         public MainWindow()
         {
@@ -57,6 +59,7 @@ namespace EasyCheckout
             if (method is not null && SelectedProduct is not null)
             {
                 paymentResultTextBlock.Text = method.ProcessPayment(SelectedProduct.Price);
+                _productLogger.Write(SelectedProduct);
             }
         }
 
