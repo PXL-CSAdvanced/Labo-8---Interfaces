@@ -152,7 +152,7 @@ internal class ProductStore
 ## Logger
 - Maak een folder aan met de naam *Logging*
 - Voorzie hierin 2 classes die de interface *IProductLogger* implementeren
-![logging diagram](media/loggingdiagram.png)
+![logging diagram](media/LoggingDiagram.png)
 
 > [!TIP]
 > Gebruik Debug.WriteLine() en File.AppendAllText() om de *Write*-methode te implementeren
