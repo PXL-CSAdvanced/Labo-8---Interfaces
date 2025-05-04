@@ -20,55 +20,9 @@ namespace EasyCheckout
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ProductStore _productStore = new ProductStore();
-        private PaymentStore _paymentStore = new PaymentStore();
-        private IProductLogger _productLogger = new DebugProductLogger();
-
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void OnWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            foreach(Product product in _productStore.GetAllProducts())
-            {
-                productsComboBox.Items.Add(product);
-            }
-
-            foreach(IPaymentMethod method in _paymentStore.GetAvailablePaymentMethods())
-            {
-                paymentMethodComboBox.Items.Add(method);
-            }
-
-            productsComboBox.SelectedIndex = -1;
-            paymentMethodComboBox.SelectedIndex = -1;
-        }
-
-        private void OnProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            amountLabel.Content = SelectedProduct?.Price.ToString("C") ?? 0.ToString("C");
-        }
-
-        public Product SelectedProduct => productsComboBox.SelectedItem as Product;
-
-        private void OnCheckout_Clicked(object sender, RoutedEventArgs e)
-        {
-            IPaymentMethod method = paymentMethodComboBox.SelectedItem as IPaymentMethod;
-
-            if (method is not null && SelectedProduct is not null)
-            {
-                paymentResultTextBlock.Text = method.ProcessPayment(SelectedProduct.Price);
-                _productLogger.Write(SelectedProduct);
-            }
-        }
-
-        private void OnNewOrder_Clicked(object sender, RoutedEventArgs e)
-        {
-            customerTextBox.Text = string.Empty;
-            productsComboBox.SelectedIndex = -1;
-            paymentMethodComboBox.SelectedIndex = -1;
-            paymentResultTextBlock.Text = string.Empty;
         }
     }
 }

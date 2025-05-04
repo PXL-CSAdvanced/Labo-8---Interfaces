@@ -4,42 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasyCheckout"
-        mc:Ignorable="d"
-        Title="PXL PC Shop - Powered by EasyCheckout" Height="500" Width="550" 
-        FontFamily="Lucida Console" FontSize="14"
-        Loaded="OnWindow_Loaded">
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Bestelling">
-                <MenuItem Header="Nieuw" Click="OnNewOrder_Clicked"/>
-            </MenuItem>
-        </Menu>    
+        mc:Ignorable="d">
     
-        <StackPanel>
-            <GroupBox Header="Bestelling" Margin="10" Padding="10">
-                <StackPanel>
-                    <Label Content="Klant:" Margin="5"/>
-                    <TextBox x:Name="customerTextBox" Margin="5" Padding="3"/>
-                    <Label Content="Product:" Margin="5"/>
-                    <ComboBox x:Name="productsComboBox" Margin="5" SelectionChanged="OnProduct_SelectionChanged"/>
-                </StackPanel>
-            </GroupBox>
-            <GroupBox Header="Betaling" Margin="10" Padding="10">
-                <StackPanel>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Totaal: " Margin="5"/>
-                        <Label Grid.Column="1" x:Name="amountLabel" Margin="5"/>
-                    </Grid>
-                    <Label Content="Selecteer uw betaalmethode:" Margin="5"/>
-                    <ComboBox Margin="5" x:Name="paymentMethodComboBox"/>
-                    <Button HorizontalAlignment="Right" Content="Checkout" Margin="5" Padding="6" Click="OnCheckout_Clicked"/>
-                    <TextBlock x:Name="paymentResultTextBlock" Margin="5" TextWrapping="Wrap" Background="Black" Foreground="White" Padding="5"/>
-                </StackPanel>
-            </GroupBox>
-        </StackPanel>
-    </DockPanel>
 </Window>
