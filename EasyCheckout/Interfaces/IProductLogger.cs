@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyCheckout.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace EasyCheckout.Interfaces
 {
-    public interface IPaymentMethod
+    public interface IProductLogger
     {
-        string Name { get; }
-        string ProcessPayment(decimal amount);
+        void Write(Product product);
     }
 }

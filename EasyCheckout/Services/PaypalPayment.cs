@@ -1,6 +1,6 @@
 ﻿using EasyCheckout.Interfaces;
 
-namespace EasyCheckout.Models
+namespace EasyCheckout.Services
 {
     internal class PaypalPayment : IPaymentMethod
     {
@@ -9,6 +9,11 @@ namespace EasyCheckout.Models
         public string ProcessPayment(decimal amount)
         {
             return $"{amount:c} betaald via PayPal. Bevestiging per e-mail verzonden.";
+        }
+
+        public override string ToString()
+        {
+            return this.Name;
         }
     }
 }

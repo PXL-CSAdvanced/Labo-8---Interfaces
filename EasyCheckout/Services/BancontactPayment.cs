@@ -1,6 +1,6 @@
 ﻿using EasyCheckout.Interfaces;
 
-namespace EasyCheckout.Models
+namespace EasyCheckout.Services
 {
     internal class BancontactPayment : IPaymentMethod
     {
@@ -9,6 +9,11 @@ namespace EasyCheckout.Models
         public string ProcessPayment(decimal amount)
         {
             return $"{amount:c} betaald met Bancontact. Verwerking succesvol.";
+        }
+
+        public override string ToString()
+        {
+            return this.Name;
         }
     }
 }

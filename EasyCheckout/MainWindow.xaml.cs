@@ -1,4 +1,6 @@
-﻿using EasyCheckout.Interfaces;
+﻿using EasyCheckout.Data;
+using EasyCheckout.Entities;
+using EasyCheckout.Interfaces;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,6 +19,9 @@ namespace EasyCheckout
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ProductStore _productStore = new ProductStore();
+        private PaymentStore _paymentStore = new PaymentStore();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -24,17 +29,34 @@ namespace EasyCheckout
 
         private void OnWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            foreach(Product product in _productStore.GetAllProducts())
+            {
+                productsComboBox.Items.Add(product);
+            }
 
+            foreach(IPaymentMethod method in _paymentStore.GetAvailablePaymentMethods())
+            {
+                paymentMethodComboBox.Items.Add(method);
+            }
         }
+
+        private void OnProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            amountLabel.Content = SelectedProduct?.Price.ToString("C");
+        }
+
+        public Product SelectedProduct => productsComboBox.SelectedItem as Product;
 
         private void OnCheckout_Clicked(object sender, RoutedEventArgs e)
         {
             IPaymentMethod method = paymentMethodComboBox.SelectedItem as IPaymentMethod;
 
-            if (method is not null)
+            if (method is not null && SelectedProduct is not null)
             {
-                paymentResultTextBlock.Text = method.ProcessPayment(0);
+                paymentResultTextBlock.Text = method.ProcessPayment(SelectedProduct.Price);
             }
         }
+
+
     }
 }

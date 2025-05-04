@@ -14,7 +14,7 @@
                 <Label Content="Klant:" Margin="5"/>
                 <TextBox x:Name="customerTextBox" Margin="5" Padding="3"/>
                 <Label Content="Product:" Margin="5"/>
-                <ComboBox x:Name="productsComboBox" Margin="5"/>
+                <ComboBox x:Name="productsComboBox" Margin="5" SelectionChanged="OnProduct_SelectionChanged"/>
             </StackPanel>
         </GroupBox>
         <GroupBox Header="Betaling" Margin="10" Padding="10">

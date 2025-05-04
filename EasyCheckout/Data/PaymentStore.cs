@@ -1,10 +1,5 @@
 ﻿using EasyCheckout.Interfaces;
-using EasyCheckout.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EasyCheckout.Services;
 
 namespace EasyCheckout.Data
 {
@@ -17,7 +12,6 @@ namespace EasyCheckout.Data
                 new BancontactPayment(),
                 new CashPayment(),
                 new PaypalPayment()
-
             };
         }
     }
