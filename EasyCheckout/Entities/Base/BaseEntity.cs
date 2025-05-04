@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EasyCheckout.Entities.Base
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         public int Id { get; set; }
     }

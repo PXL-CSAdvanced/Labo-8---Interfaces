@@ -38,11 +38,14 @@ namespace EasyCheckout
             {
                 paymentMethodComboBox.Items.Add(method);
             }
+
+            productsComboBox.SelectedIndex = -1;
+            paymentMethodComboBox.SelectedIndex = -1;
         }
 
         private void OnProduct_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            amountLabel.Content = SelectedProduct?.Price.ToString("C");
+            amountLabel.Content = SelectedProduct?.Price.ToString("C") ?? 0.ToString("C");
         }
 
         public Product SelectedProduct => productsComboBox.SelectedItem as Product;
@@ -57,6 +60,12 @@ namespace EasyCheckout
             }
         }
 
-
+        private void OnNewOrder_Clicked(object sender, RoutedEventArgs e)
+        {
+            customerTextBox.Text = string.Empty;
+            productsComboBox.SelectedIndex = -1;
+            paymentMethodComboBox.SelectedIndex = -1;
+            paymentResultTextBlock.Text = string.Empty;
+        }
     }
 }
